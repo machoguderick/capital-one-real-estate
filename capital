@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capital One Real Estate Finance | Property Loans & Investment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1e2d3a;
+            background: #ffffff;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        /* Top Contact Bar - Only WhatsApp and Call Now */
+        .contact-bar {
+            background: #0a1a2b;
+            color: white;
+            padding: 15px 0;
+            border-bottom: 3px solid #00a86b;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .contact-bar .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 25px;
+            border-radius: 40px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 1.1rem;
+        }
+        
+        .contact-item a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .whatsapp-link {
+            background: #25D366;
+        }
+        
+        .phone-link {
+            background: #004977;
+        }
+        
+        /* Main Navigation */
+        nav {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 73px;
+            z-index: 999;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0a1a2b;
+            letter-spacing: -1px;
+        }
+        
+        .logo span {
+            color: #00a86b;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #1e2d3a;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #00a86b;
+        }
+        
+        .nav-links .apply-btn {
+            background: #00a86b;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,168,107,0.3);
+            cursor: pointer;
+        }
+        
+        .nav-links .apply-btn:hover {
+            background: #008c56;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section - Home */
+        #home {
+            padding: 60px 0 40px;
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2f6 100%);
+            scroll-margin-top: 140px;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #0a1a2b;
+        }
+        
+        .hero-text h1 span {
+            color: #00a86b;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #4a5a6a;
+            margin-bottom: 40px;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 40px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0a1a2b;
+        }
+        
+        .stat-label {
+            color: #6b7a8a;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Features Section - Loans */
+        #loans {
+            padding: 80px 0;
+            background: white;
+            scroll-margin-top: 140px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #0a1a2b;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #6b7a8a;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: #f8fafc;
+            padding: 40px 30px;
+            border-radius: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eef2f6;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.05);
+            border-color: #00a86b;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            color: #0a1a2b;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .feature-card p {
+            color: #4a5a6a;
+        }
+        
+        /* Property Types Section - Properties */
+        #properties {
+            padding: 80px 0;
+            background: #f8fafc;
+            scroll-margin-top: 140px;
+        }
+        
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .property-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+        }
+        
+        .property-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .property-content h3 {
+            margin-bottom: 10px;
+            color: #0a1a2b;
+            font-size: 1.3rem;
+        }
+        
+        .property-content p {
+            color: #6b7a8a;
+            margin-bottom: 20px;
+        }
+        
+        .property-link {
+            color: #00a86b;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Process Section */
+        .process {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #00a86b;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-weight: 700;
+            font-size: 1.8rem;
+            box-shadow: 0 10px 20px rgba(0,168,107,0.2);
+        }
+        
+        .process-step h3 {
+            margin-bottom: 10px;
+            color: #0a1a2b;
+        }
+        
+        .process-step p {
+            color: #6b7a8a;
+        }
+        
+        /* Market Insights - Resources */
+        #resources {
+            padding: 80px 0;
+            background: #0a1a2b;
+            color: white;
+            scroll-margin-top: 140px;
+        }
+        
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .insight-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 4px solid #00a86b;
+        }
+        
+        .insight-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: white;
+        }
+        
+        .insight-card p {
+            color: #b0c0d0;
+            margin-bottom: 20px;
+        }
+        
+        .insight-meta {
+            color: #00a86b;
+            font-weight: 600;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            position: relative;
+        }
+        
+        .quote-icon {
+            color: #00a86b;
+            font-size: 2rem;
+            opacity: 0.3;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 25px;
+            color: #1e2d3a;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-author {
+            color: #0a1a2b;
+            font-weight: 700;
+        }
+        
+        .testimonial-location {
+            color: #00a86b;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section - Contact */
+        #contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #00a86b, #004977);
+            color: white;
+            text-align: center;
+            scroll-margin-top: 140px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            background: white;
+            color: #0a1a2b;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        .cta-btn.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0a1a2b;
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-section h4 {
+            color: #00a86b;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-about p {
+            color: #b0c0d0;
+            margin-bottom: 25px;
+        }
+        
+        .footer-contact {
+            list-style: none;
+        }
+        
+        .footer-contact li {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #b0c0d0;
+        }
+        
+        .footer-contact i {
+            color: #00a86b;
+            font-size: 1.2rem;
+            width: 25px;
+        }
+        
+        .footer-contact a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-contact a:hover {
+            color: #00a86b;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: #b0c0d0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #00a86b;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #1e3a4a;
+            color: #b0c0d0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                padding: 0 20px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-bar .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Contact Bar - Only WhatsApp and Call Now -->
+    <div class="contact-bar">
+        <div class="container">
+            <div class="contact-item">
+                <a href="https://wa.me/243719217839" target="_blank" class="whatsapp-link">
+                    <span>💬</span> WhatsApp: +243 719 217 839
+                </a>
+            </div>
+            <div class="contact-item">
+                <a href="tel:+243719217839" class="phone-link">
+                    <span>📞</span> Call: +243 719 217 839
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation with Updated Links -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Capital<span>One</span> <span style="font-size: 1rem; color: #6b7a8a; margin-left: 10px;">Real Estate Finance</span></div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#properties">Properties</a>
+                <a href="#loans">Loans</a>
+                <a href="#resources">Resources</a>
+                <a href="#contact">Contact</a>
+                <a href="https://wa.me/243719217839" target="_blank" class="apply-btn">Apply Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>
+                        Unlock Your Property's <span>True Value</span>
+                    </h1>
+                    <p>Get instant loans against your title deed with the fastest approval in the market. Funds in 72 hours guaranteed.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">72hrs</div>
+                            <div class="stat-label">Approval Time</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">80%</div>
+                            <div class="stat-label">Property Value</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">2,500+</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section id="properties" class="property-types">
+        <div class="container">
+            <div class="section-title">
+                <h2>Properties We Finance</h2>
+                <p>We provide loans against all types of real estate</p>
+            </div>
+            
+            <div class="property-grid">
+                <div class="property-card">
+                    <div class="property-icon">🏠</div>
+                    <div class="property-content">
+                        <h3>Residential Homes</h3>
+                        <p>Villas, bungalows, apartments, and townhouses. Up to 80% financing.</p>
+                        <a href="#contact" class="property-link">Inquire Now →</a>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <div class="property-icon">🏢</div>
+                    <div class="property-content">
+                        <h3>Commercial Property</h3>
+                        <p>Office buildings, retail spaces, warehouses, and industrial property.</p>
+                        <a href="#contact" class="property-link">Inquire Now →</a>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <div class="property-icon">🌆</div>
+                    <div class="property-content">
+                        <h3>Land & Plots</h3>
+                        <p>Vacant land, agricultural land, and development plots.</p>
+                        <a href="#contact" class="property-link">Inquire Now →</a>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <div class="property-icon">🏗️</div>
+                    <div class="property-content">
+                        <h3>Under Construction</h3>
+                        <p>Properties under development with proper approvals.</p>
+                        <a href="#contact" class="property-link">Inquire Now →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loans Section -->
+    <section id="loans">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Capital One?</h2>
+                <p>We make property financing simple, transparent, and incredibly fast</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏗️</div>
+                    <h3>100% Construction Funding</h3>
+                    <p>Full funding from foundation to finish. No hidden margins or fees.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>Title Deed Loans</h3>
+                    <p>Instant cash against your title deed, up to 80% of property value.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>72hr Approval</h3>
+                    <p>From document submission to disbursement in 3 days – guaranteed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Flexible Tenure</h3>
+                    <p>6–72 months repayment, prepay without any penalty.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Competitive Rates</h3>
+                    <p>Industry-leading interest rates with no hidden charges.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Secure Process</h3>
+                    <p>Your property and data are protected with bank-level security.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section (Still part of Loans) -->
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>From Application to Money</h2>
+                <p>Four simple steps to get your funds</p>
+            </div>
+            
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Apply Online</h3>
+                    <p>Fill our simple form in just 3 minutes</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Title Deed Check</h3>
+                    <p>We verify your property documents</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Instant Approval</h3>
+                    <p>Get approved within 24 hours</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Funds Disbursed</h3>
+                    <p>Money in your account in 72 hours</p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 50px; font-size: 1.2rem; color: #00a86b; font-weight: 600;">We only need 24 hours to process your loan application</p>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="market-insights">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">Real Estate Market Insights</h2>
+                <p style="color: #b0c0d0;">Stay informed with the latest property trends</p>
+            </div>
+            
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <h3>Property Values Up 12%</h3>
+                    <p>Real estate values in prime locations have increased by an average of 12% this year, making now the perfect time to leverage your equity.</p>
+                    <div class="insight-meta">Market Analysis 2026</div>
+                </div>
+                <div class="insight-card">
+                    <h3>New Development Zones</h3>
+                    <p>Government announces 5 new development zones with improved infrastructure, increasing property values in surrounding areas.</p>
+                    <div class="insight-meta">Development News</div>
+                </div>
+                <div class="insight-card">
+                    <h3>Title Deed Digitization</h3>
+                    <p>New digital title deed system reduces verification time by 70%, enabling faster loan processing.</p>
+                    <div class="insight-meta">Industry Update</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section (Still part of Resources) -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Real stories from property owners who got funded</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p>Applied on Monday, got the money on Wednesday. Built my house in Nakuru without any delays. The 72hr promise is real!</p>
+                    <div class="testimonial-author">James K.</div>
+                    <div class="testimonial-location">Nakuru</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p>Used my title deed to get a 2.4M loan for my business expansion. The whole process was smooth and transparent.</p>
+                    <div class="testimonial-author">Sarah M.</div>
+                    <div class="testimonial-location">Nairobi</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <p>Their online calculator helped me plan my finances perfectly. I recommend Capital One to all property owners.</p>
+                    <div class="testimonial-author">David O.</div>
+                    <div class="testimonial-location">Mombasa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h2>Ready to Unlock Your Property's Value?</h2>
+            <p>Get your loan approved in 72 hours. Visit us at Emperor Plaza or call now.</p>
+            <div class="cta-buttons">
+                <a href="tel:+243719217839" class="cta-btn">📞 Call +243 719 217 839</a>
+                <a href="https://wa.me/243719217839" target="_blank" class="cta-btn whatsapp">💬 WhatsApp Us</a>
+                <a href="#" class="cta-btn">📍 Emperor Plaza, Third Floor</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section footer-about">
+                    <h4>Capital One Real Estate Finance</h4>
+                    <p>We provide fast, transparent property loans using your title deed. Funds guaranteed in 72 hours with the best rates in the market.</p>
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <a href="https://wa.me/243719217839" target="_blank" style="color: white; font-size: 1.5rem;">💬</a>
+                        <a href="tel:+243719217839" style="color: white; font-size: 1.5rem;">📞</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#properties">Properties</a></li>
+                        <li><a href="#loans">Loans</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Loan Types</h4>
+                    <ul class="footer-links">
+                        <li><a href="#loans">Title Deed Loans</a></li>
+                        <li><a href="#loans">Construction Funding</a></li>
+                        <li><a href="#loans">Property Bridge Loans</a></li>
+                        <li><a href="#loans">Land Purchase Loans</a></li>
+                        <li><a href="#loans">Commercial Property</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <span>📍</span>
+                            <span>Emperor Plaza, Third Floor<br>Nairobi, Kenya</span>
+                        </li>
+                        <li>
+                            <span>📞</span>
+                            <a href="tel:+243719217839">+243 719 217 839</a>
+                        </li>
+                        <li>
+                            <span>💬</span>
+                            <a href="https://wa.me/243719217839" target="_blank">WhatsApp: +243 719 217 839</a>
+                        </li>
+                        <li>
+                            <span>✉️</span>
+                            <a href="mailto:info@capitalone.co">info@capitalone.co</a>
+                        </li>
+                        <li>
+                            <span>⏰</span>
+                            <span>Mon-Fri: 8am-6pm<br>Sat: 9am-1pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 Capital One Real Estate Finance. All rights reserved.</p>
+                <p style="margin-top: 10px;">📍 Emperor Plaza, Third Floor | 📞 +243 719 217 839 | 💬 WhatsApp: +243 719 217 839</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Optional: Add active state to navigation based on scroll position
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.color = '#00a86b';
+                } else {
+                    link.style.color = '#1e2d3a';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
