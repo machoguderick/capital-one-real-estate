@@ -1,965 +1,1731 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capital One Real Estate Finance | Property Loans & Investment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Capital One Real Estate | Title Deed & Logbook Loans Kenya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #1e2d3a;
-            background: #ffffff;
+
+        :root {
+            --blue-50: #eff6ff;
+            --blue-100: #dbeafe;
+            --blue-200: #bfdbfe;
+            --blue-300: #93c5fd;
+            --blue-400: #60a5fa;
+            --blue-500: #3b82f6;
+            --blue-600: #2563eb;
+            --blue-700: #1d4ed8;
+            --blue-800: #1e40af;
+            --blue-900: #1e3a8a;
+            --blue-950: #172554;
+            --cyan-400: #22d3ee;
+            --cyan-500: #06b6d4;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
-        
-        .container {
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--blue-500), var(--cyan-500));
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--blue-600), #0891b2);
+        }
+
+        /* Selection */
+        ::selection {
+            background: rgba(37, 99, 235, 0.2);
+            color: var(--blue-900);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(37, 99, 235, 0.6); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes bounceSubtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+        @keyframes drawLine {
+            to { stroke-dashoffset: 0; }
+        }
+
+        .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+        .animate-slide-left { animation: slideInLeft 0.6s ease-out forwards; }
+        .animate-slide-right { animation: slideInRight 0.6s ease-out forwards; }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
+        .animate-scale-in { animation: scaleIn 0.5s ease-out forwards; }
+        .animate-bounce-subtle { animation: bounceSubtle 2s ease-in-out infinite; }
+
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+
+        /* Scroll Reveal */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .scroll-reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .scroll-reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .scroll-reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .scroll-reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Header */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                        background-color 0.3s ease,
+                        box-shadow 0.3s ease,
+                        backdrop-filter 0.3s ease;
+            background: transparent;
+        }
+        .navbar.hidden {
+            transform: translateY(-100%);
+        }
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 30px;
-        }
-        
-        /* Top Contact Bar - Only WhatsApp and Call Now */
-        .contact-bar {
-            background: #0a1a2b;
-            color: white;
-            padding: 15px 0;
-            border-bottom: 3px solid #00a86b;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .contact-bar .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .contact-item {
+            padding: 16px 24px;
             display: flex;
             align-items: center;
-        }
-        
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 25px;
-            border-radius: 40px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            font-size: 1.1rem;
-        }
-        
-        .contact-item a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        
-        .whatsapp-link {
-            background: #25D366;
-        }
-        
-        .phone-link {
-            background: #004977;
-        }
-        
-        /* Main Navigation */
-        nav {
-            background: white;
-            padding: 20px 0;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 73px;
-            z-index: 999;
-        }
-        
-        .nav-container {
-            display: flex;
             justify-content: space-between;
-            align-items: center;
         }
-        
-        .logo {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #0a1a2b;
-            letter-spacing: -1px;
+
+        .logo img {
+            height: 56px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
         }
-        
-        .logo span {
-            color: #00a86b;
+        .logo img:hover {
+            transform: scale(1.05);
         }
-        
-        .nav-links {
+
+        .nav-contact {
             display: flex;
-            gap: 40px;
             align-items: center;
+            gap: 16px;
         }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #1e2d3a;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #00a86b;
-        }
-        
-        .nav-links .apply-btn {
-            background: #00a86b;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 30px;
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 50px;
             font-weight: 600;
-            box-shadow: 0 4px 10px rgba(0,168,107,0.3);
-            cursor: pointer;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
-        
-        .nav-links .apply-btn:hover {
-            background: #008c56;
+
+        .nav-btn-primary {
+            background: var(--blue-50);
+            color: var(--blue-700);
+        }
+        .nav-btn-primary:hover {
+            background: var(--blue-100);
+            transform: scale(1.05);
+        }
+
+        .nav-btn-outline {
+            border: 1.5px solid var(--blue-200);
+            color: var(--blue-700);
+            background: white;
+        }
+        .nav-btn-outline:hover {
+            background: var(--blue-50);
+            transform: scale(1.05);
+        }
+
+        .nav-btn-mobile {
+            display: none;
+            background: var(--blue-600);
             color: white;
-            transform: translateY(-2px);
+            padding: 10px 16px;
         }
-        
-        /* Hero Section - Home */
-        #home {
-            padding: 60px 0 40px;
-            background: linear-gradient(135deg, #f8fafc 0%, #eef2f6 100%);
-            scroll-margin-top: 140px;
-        }
-        
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero-text h1 {
-            font-size: 3.2rem;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: #0a1a2b;
-        }
-        
-        .hero-text h1 span {
-            color: #00a86b;
-        }
-        
-        .hero-text p {
-            font-size: 1.2rem;
-            color: #4a5a6a;
-            margin-bottom: 40px;
-        }
-        
-        .hero-stats {
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
-            gap: 60px;
-            margin: 40px 0;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #0a1a2b;
-        }
-        
-        .stat-label {
-            color: #6b7a8a;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        /* Features Section - Loans */
-        #loans {
-            padding: 80px 0;
-            background: white;
-            scroll-margin-top: 140px;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: #0a1a2b;
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            color: #6b7a8a;
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            background: #f8fafc;
-            padding: 40px 30px;
-            border-radius: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #eef2f6;
-            text-align: center;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 30px rgba(0,0,0,0.05);
-            border-color: #00a86b;
-        }
-        
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            color: #0a1a2b;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-        
-        .feature-card p {
-            color: #4a5a6a;
-        }
-        
-        /* Property Types Section - Properties */
-        #properties {
-            padding: 80px 0;
-            background: #f8fafc;
-            scroll-margin-top: 140px;
-        }
-        
-        .property-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        
-        .property-card {
-            background: white;
-            border-radius: 20px;
+            align-items: center;
+            padding: 120px 24px 80px;
+            background: linear-gradient(135deg, var(--blue-50) 0%, #ffffff 50%, var(--blue-100) 100%);
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            text-align: center;
-            padding: 30px 20px;
         }
-        
-        .property-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+
+        .particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
         }
-        
-        .property-icon {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--blue-400);
+            border-radius: 50%;
+            opacity: 0.3;
         }
-        
-        .property-content h3 {
-            margin-bottom: 10px;
-            color: #0a1a2b;
-            font-size: 1.3rem;
+
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
         }
-        
-        .property-content p {
-            color: #6b7a8a;
-            margin-bottom: 20px;
+        .hero-blob-1 {
+            top: 10%;
+            right: 5%;
+            width: 300px;
+            height: 300px;
+            background: rgba(59, 130, 246, 0.15);
+            animation: float 6s ease-in-out infinite;
         }
-        
-        .property-link {
-            color: #00a86b;
-            text-decoration: none;
-            font-weight: 600;
+        .hero-blob-2 {
+            bottom: 15%;
+            left: 5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(34, 211, 238, 0.1);
+            animation: float 8s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
+            padding: 8px 16px;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 24px;
         }
-        
-        /* Process Section */
-        .process {
-            padding: 80px 0;
-            background: white;
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: #0f172a;
+            margin-bottom: 24px;
         }
-        
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .process-step {
-            text-align: center;
-            padding: 30px;
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--blue-700) 0%, var(--cyan-500) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             position: relative;
         }
-        
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: #00a86b;
+
+        .hero-title .underline-svg {
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+        }
+        .hero-title .underline-svg path {
+            stroke: #fbbf24;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-dasharray: 300;
+            stroke-dashoffset: 300;
+            animation: drawLine 1s ease-out forwards;
+            animation-delay: 0.8s;
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            color: #475569;
+            max-width: 540px;
+            margin-bottom: 32px;
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .stat-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #374151;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .stat-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-700) 100%);
             color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.4);
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: white;
+            border: 2px solid var(--blue-600);
+            color: var(--blue-600);
+        }
+        .btn-secondary:hover {
+            background: var(--blue-50);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Card */
+        .hero-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            padding: 40px;
+            box-shadow: 0 25px 80px rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+        .hero-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 35px 100px rgba(37, 99, 235, 0.2);
+        }
+
+        .hero-card-icon {
+            position: absolute;
+            top: -24px;
+            right: -24px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--blue-500) 0%, var(--cyan-400) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+            animation: bounceSubtle 2s ease-in-out infinite;
+        }
+        .hero-card-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .hero-card-content {
+            text-align: center;
+        }
+
+        .hero-card-content .icon-circle {
+            width: 64px;
+            height: 64px;
+            background: var(--blue-100);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
+            margin: 0 auto 20px;
+        }
+        .hero-card-content .icon-circle i {
+            font-size: 1.75rem;
+            color: var(--blue-600);
+        }
+
+        .hero-card-content h3 {
+            font-size: 1.25rem;
             font-weight: 700;
-            font-size: 1.8rem;
-            box-shadow: 0 10px 20px rgba(0,168,107,0.2);
+            color: #0f172a;
+            margin-bottom: 8px;
         }
-        
-        .process-step h3 {
-            margin-bottom: 10px;
-            color: #0a1a2b;
+
+        .hero-card-amount {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--blue-700) 0%, var(--cyan-500) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 8px;
         }
-        
-        .process-step p {
-            color: #6b7a8a;
-        }
-        
-        /* Market Insights - Resources */
-        #resources {
-            padding: 80px 0;
-            background: #0a1a2b;
-            color: white;
-            scroll-margin-top: 140px;
-        }
-        
-        .insights-grid {
+
+        .hero-card-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 24px;
         }
-        
-        .insight-card {
-            background: rgba(255,255,255,0.05);
-            padding: 30px;
-            border-radius: 20px;
-            border-left: 4px solid #00a86b;
+        .hero-card-stat {
+            background: var(--blue-50);
+            border-radius: 16px;
+            padding: 16px;
         }
-        
-        .insight-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            color: white;
+        .hero-card-stat.cyan {
+            background: rgba(6, 182, 212, 0.1);
         }
-        
-        .insight-card p {
-            color: #b0c0d0;
-            margin-bottom: 20px;
+        .hero-card-stat .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--blue-700);
         }
-        
-        .insight-meta {
-            color: #00a86b;
-            font-weight: 600;
+        .hero-card-stat.cyan .value {
+            color: #0891b2;
         }
-        
-        /* Testimonials */
-        .testimonials {
-            padding: 80px 0;
-            background: #f8fafc;
+        .hero-card-stat .label {
+            font-size: 0.875rem;
+            color: #64748b;
         }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .testimonial-card {
+
+        /* Floating badges */
+        .float-badge {
+            position: absolute;
             background: white;
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            border-radius: 12px;
+            padding: 12px 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: #374151;
+            animation: float 4s ease-in-out infinite;
+        }
+        .float-badge i {
+            color: #eab308;
+        }
+        .float-badge-1 {
+            bottom: 40px;
+            left: -20px;
+        }
+        .float-badge-2 {
+            top: 60px;
+            left: -40px;
+            animation-delay: 1s;
+        }
+        .float-badge-2 i {
+            color: var(--blue-500);
+        }
+
+        /* Loan Cards Section */
+        .section {
+            padding: 100px 24px;
             position: relative;
         }
-        
-        .quote-icon {
-            color: #00a86b;
-            font-size: 2rem;
-            opacity: 0.3;
-            margin-bottom: 15px;
+
+        .section-bg-white {
+            background: white;
         }
-        
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 25px;
-            color: #1e2d3a;
-            font-size: 1.1rem;
+
+        .section-bg-gradient {
+            background: linear-gradient(180deg, var(--blue-50) 0%, white 100%);
         }
-        
-        .testimonial-author {
-            color: #0a1a2b;
-            font-weight: 700;
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
         }
-        
-        .testimonial-location {
-            color: #00a86b;
-            font-size: 0.9rem;
-        }
-        
-        /* CTA Section - Contact */
-        #contact {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #00a86b, #004977);
-            color: white;
+
+        .section-header {
             text-align: center;
-            scroll-margin-top: 140px;
+            margin-bottom: 64px;
         }
-        
-        .cta-section h2 {
-            font-size: 2.8rem;
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+        }
+
+        .loan-card {
+            background: white;
+            border-radius: 28px;
+            padding: 40px 32px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f1f5f9;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .loan-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, var(--blue-500), var(--cyan-500));
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .loan-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(37, 99, 235, 0.15);
+        }
+        .loan-card:hover::before {
+            opacity: 1;
+        }
+
+        .loan-card-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+        }
+        .loan-card:hover .loan-card-icon {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .loan-card-icon.blue {
+            background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+        }
+        .loan-card-icon.cyan {
+            background: linear-gradient(135deg, var(--cyan-500), var(--blue-600));
+        }
+        .loan-card-icon.indigo {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+
+        .loan-card-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .loan-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .loan-card-amount {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--blue-700);
+            margin-bottom: 24px;
+        }
+
+        .loan-card-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+        .loan-card-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            color: #475569;
+        }
+        .loan-card-features li i {
+            width: 20px;
+            color: var(--blue-500);
+        }
+
+        .loan-card-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .loan-card-btn.blue {
+            background: var(--blue-50);
+            color: var(--blue-700);
+        }
+        .loan-card-btn.blue:hover {
+            background: var(--blue-100);
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-item {
+            background: white;
+            border-radius: 24px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.12);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+        .feature-item:hover .feature-icon {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .feature-icon.blue { background: var(--blue-100); }
+        .feature-icon.blue i { color: var(--blue-600); }
+        .feature-icon.cyan { background: rgba(6, 182, 212, 0.1); }
+        .feature-icon.cyan i { color: #0891b2; }
+        .feature-icon.indigo { background: rgba(99, 102, 241, 0.1); }
+        .feature-icon.indigo i { color: #6366f1; }
+
+        .feature-icon i {
+            font-size: 1.75rem;
+        }
+
+        .feature-item h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+        .feature-item p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+        .feature-item small {
+            display: block;
+            margin-top: 8px;
+            color: #94a3b8;
+            font-size: 0.8rem;
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 50%, var(--blue-600) 100%);
+            padding: 80px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .stats-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+        .stat-item .icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+        .stat-item .icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+        .stat-item .value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 8px;
+        }
+        .stat-item .label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: white;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 25px 80px rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 50%, var(--blue-600) 100%);
+            padding: 60px;
+            color: white;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .contact-info > p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .contact-item .icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-item .icon i {
+            font-size: 1.25rem;
+            color: white;
+        }
+        .contact-item .label {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .contact-item .value {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-item .value:hover {
+            color: white;
+        }
+
+        .contact-hours {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 32px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .contact-hours i {
+            font-size: 1.25rem;
+        }
+        .contact-hours span {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-form {
+            padding: 60px;
+        }
+        .contact-form h4 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 32px;
+        }
+
+        .form-group {
             margin-bottom: 20px;
         }
-        
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .cta-btn {
-            background: white;
-            color: #0a1a2b;
-            padding: 18px 40px;
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 24px;
+            border: 1.5px solid #e2e8f0;
             border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            display: inline-flex;
+            font-family: inherit;
+            font-size: 1rem;
+            color: #0f172a;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        .form-group textarea {
+            border-radius: 20px;
+            resize: vertical;
+            min-height: 100px;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blue-500);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+            transform: scale(1.01);
+        }
+
+        .form-btn {
+            width: 100%;
+            display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            transition: transform 0.3s;
-        }
-        
-        .cta-btn:hover {
-            transform: translateY(-3px);
-        }
-        
-        .cta-btn.whatsapp {
-            background: #25D366;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-700) 100%);
             color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
-        
+        .form-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+        .form-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-top: 16px;
+        }
+
+        .success-message {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            animation: scaleIn 0.5s ease-out;
+        }
+        .success-message .icon {
+            width: 80px;
+            height: 80px;
+            background: #dcfce7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+        .success-message .icon i {
+            font-size: 2.5rem;
+            color: #16a34a;
+        }
+        .success-message h5 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #166534;
+            margin-bottom: 8px;
+        }
+        .success-message p {
+            color: #16a34a;
+        }
+
         /* Footer */
         footer {
-            background: #0a1a2b;
+            background: #0f172a;
             color: white;
-            padding: 70px 0 30px;
+            padding: 60px 24px 40px;
         }
-        
+
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 50px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1280px;
+            margin: 0 auto 40px;
         }
-        
-        .footer-section h4 {
-            color: #00a86b;
-            margin-bottom: 25px;
-            font-size: 1.2rem;
+
+        .footer-brand img {
+            height: 64px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            background: white;
+            padding: 8px;
+            margin-bottom: 16px;
         }
-        
-        .footer-about p {
-            color: #b0c0d0;
-            margin-bottom: 25px;
+        .footer-brand p {
+            color: #94a3b8;
+            line-height: 1.7;
         }
-        
-        .footer-contact {
+
+        .footer-links h5 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .footer-links ul {
             list-style: none;
         }
-        
-        .footer-contact li {
-            margin-bottom: 18px;
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+        .footer-links a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue-500), var(--cyan-500));
+            transition: width 0.3s ease;
+        }
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 32px;
+            text-align: center;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .footer-bottom p {
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+        .footer-bottom .small {
+            font-size: 0.875rem;
             display: flex;
             align-items: center;
-            gap: 15px;
-            color: #b0c0d0;
+            justify-content: center;
+            gap: 8px;
         }
-        
-        .footer-contact i {
-            color: #00a86b;
-            font-size: 1.2rem;
-            width: 25px;
-        }
-        
-        .footer-contact a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-contact a:hover {
-            color: #00a86b;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-        
-        .footer-links a {
-            color: #b0c0d0;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #00a86b;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #1e3a4a;
-            color: #b0c0d0;
-        }
-        
+
         /* Responsive */
         @media (max-width: 1024px) {
-            .hero-content {
-                padding: 0 20px;
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
             }
-            
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .hero-title {
+                font-size: 2.75rem;
             }
-        }
-        
-        @media (max-width: 768px) {
-            .contact-bar .container {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-            
-            .nav-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                gap: 30px;
-            }
-            
-            .footer-grid {
+            .contact-card {
                 grid-template-columns: 1fr;
             }
+        }
+
+        @media (max-width: 768px) {
+            .nav-btn {
+                display: none;
+            }
+            .nav-btn-mobile {
+                display: flex;
+            }
+            .hero {
+                padding: 100px 20px 60px;
+            }
+            .hero-title {
+                font-size: 2.25rem;
+            }
+            .hero-card {
+                padding: 32px 24px;
+            }
+            .hero-card-icon {
+                width: 60px;
+                height: 60px;
+                top: -16px;
+                right: -16px;
+            }
+            .float-badge {
+                display: none;
+            }
+            .section {
+                padding: 60px 20px;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-info,
+            .contact-form {
+                padding: 40px 24px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+            .stat-item .value {
+                font-size: 2rem;
+            }
+        }
+
+        /* Loading spinner */
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <!-- Top Contact Bar - Only WhatsApp and Call Now -->
-    <div class="contact-bar">
-        <div class="container">
-            <div class="contact-item">
-                <a href="https://wa.me/243719217839" target="_blank" class="whatsapp-link">
-                    <span>💬</span> WhatsApp: +243 719 217 839
-                </a>
+
+<!-- Header -->
+<header class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">
+            <img src="1000297987.jpg" alt="Capital One Real Estate">
+        </a>
+        <div class="nav-contact">
+            <a href="tel:+254101797321" class="nav-btn nav-btn-primary">
+                <i class="fas fa-phone-alt"></i>
+                <span>+254 101 797321</span>
+            </a>
+            <a href="#contact" class="nav-btn nav-btn-outline">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Emperor Plaza, 4th Flr</span>
+            </a>
+            <a href="tel:+254101797321" class="nav-btn nav-btn-mobile">
+                <i class="fas fa-phone-alt"></i>
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Decorative blobs -->
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    
+    <div class="hero-container">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge animate-fade-in-up">
+                    <i class="fas fa-bolt"></i>
+                    Approved within 72 hours
+                </div>
+                
+                <h1 class="hero-title animate-fade-in-up delay-100">
+                    Searching for a 
+                    <span class="text-gradient">
+                        Title Deed Loan?
+                        <svg class="underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none">
+                            <path d="M2 10C50 2 150 2 298 10" fill="none"/>
+                        </svg>
+                    </span>
+                    <br>Look no further!
+                </h1>
+                
+                <p class="hero-desc animate-fade-in-up delay-200">
+                    Get up to <strong style="color: var(--blue-700);">KSh 20 Million</strong> with flexible repayment & low interest. 
+                    Logbook loans also available — fast, transparent, and minimal documents.
+                </p>
+                
+                <div class="hero-stats animate-fade-in-up delay-300">
+                    <div class="stat-pill">
+                        <i class="fas fa-check-circle" style="color: #16a34a;"></i>
+                        <span>72hrs approval</span>
+                    </div>
+                    <div class="stat-pill">
+                        <i class="fas fa-file-invoice" style="color: var(--blue-600);"></i>
+                        <span>Minimal docs</span>
+                    </div>
+                    <div class="stat-pill">
+                        <i class="fas fa-percent" style="color: var(--cyan-500);"></i>
+                        <span>Competitive rates</span>
+                    </div>
+                </div>
+                
+                <div class="hero-cta animate-fade-in-up delay-400">
+                    <a href="#contact" class="btn btn-primary animate-pulse-glow">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        Apply Now
+                    </a>
+                    <a href="tel:+254101797321" class="btn btn-secondary">
+                        <i class="fab fa-whatsapp"></i>
+                        Call / WhatsApp
+                    </a>
+                </div>
             </div>
-            <div class="contact-item">
-                <a href="tel:+243719217839" class="phone-link">
-                    <span>📞</span> Call: +243 719 217 839
-                </a>
+            
+            <div class="hero-card-wrapper animate-fade-in-up delay-500" style="position: relative;">
+                <div class="hero-card">
+                    <div class="hero-card-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    
+                    <div class="hero-card-content">
+                        <div class="icon-circle">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3>Title Deed Loan &<br>Logbook Loan Experts</h3>
+                        <div class="hero-card-amount">20M KSh</div>
+                        <p style="color: #64748b;">Flexible tenure up to 60 months</p>
+                        
+                        <div class="hero-card-stats">
+                            <div class="hero-card-stat">
+                                <div class="value">72h</div>
+                                <div class="label">Approval</div>
+                            </div>
+                            <div class="hero-card-stat cyan">
+                                <div class="value">Low</div>
+                                <div class="label">Interest</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Floating badges -->
+                <div class="float-badge float-badge-1">
+                    <i class="fas fa-star"></i>
+                    <span>Trusted by 10,000+</span>
+                </div>
+                <div class="float-badge float-badge-2">
+                    <i class="fas fa-award"></i>
+                    <span>Licensed Lender</span>
+                </div>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Navigation with Updated Links -->
-    <nav>
-        <div class="container nav-container">
-            <div class="logo">Capital<span>One</span> <span style="font-size: 1rem; color: #6b7a8a; margin-left: 10px;">Real Estate Finance</span></div>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#properties">Properties</a>
-                <a href="#loans">Loans</a>
-                <a href="#resources">Resources</a>
-                <a href="#contact">Contact</a>
-                <a href="https://wa.me/243719217839" target="_blank" class="apply-btn">Apply Now</a>
+<!-- Loan Cards Section -->
+<section class="section section-bg-white">
+    <div class="container">
+        <div class="section-header scroll-reveal">
+            <h2 class="section-title">
+                Loan offers <span class="text-gradient">tailored for you</span>
+            </h2>
+            <p class="section-subtitle">
+                Instant funding, transparent terms, and 72-hour turnaround – from Title Deed to Logbook & unsecured loans.
+            </p>
+        </div>
+        
+        <div class="cards-grid">
+            <!-- Title Deed Loan -->
+            <div class="loan-card scroll-reveal">
+                <div class="loan-card-icon blue">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <h3>Title Deed Loan</h3>
+                <div class="loan-card-amount">Up to KSh 20M</div>
+                <ul class="loan-card-features">
+                    <li><i class="fas fa-check-circle"></i> Use property as collateral</li>
+                    <li><i class="fas fa-clock"></i> Approval within 72 hours</li>
+                    <li><i class="fas fa-chart-line"></i> Low interest, flexible tenure</li>
+                    <li><i class="fas fa-file-signature"></i> Minimal documentation</li>
+                </ul>
+                <button class="loan-card-btn blue" onclick="scrollToContact()">
+                    <span>Get Title Deed Loan</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <!-- Logbook Loan -->
+            <div class="loan-card scroll-reveal" style="transition-delay: 100ms;">
+                <div class="loan-card-icon cyan">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3>Logbook Loan</h3>
+                <div class="loan-card-amount">Up to KSh 20M</div>
+                <ul class="loan-card-features">
+                    <li><i class="fas fa-check-circle"></i> Keep driving your vehicle</li>
+                    <li><i class="fas fa-bolt"></i> Approved within 72 hours</li>
+                    <li><i class="fas fa-coins"></i> Competitive rates & quick disbursal</li>
+                    <li><i class="fas fa-id-card"></i> Simple logbook valuation</li>
+                </ul>
+                <button class="loan-card-btn blue" onclick="scrollToContact()">
+                    <span>Apply Logbook Loan</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            
+            <!-- Personal Loan -->
+            <div class="loan-card scroll-reveal" style="transition-delay: 200ms;">
+                <div class="loan-card-icon indigo">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <h3>Instant Personal Loan</h3>
+                <div class="loan-card-amount">No Collateral Required</div>
+                <ul class="loan-card-features">
+                    <li><i class="fas fa-check-circle"></i> 100% unsecured</li>
+                    <li><i class="fas fa-tachometer-alt"></i> Fast approval, quick disbursal</li>
+                    <li><i class="fas fa-hand-holding-usd"></i> Flexible repayment up to 24 months</li>
+                    <li><i class="fas fa-paper-plane"></i> Minimal documents, digital process</li>
+                </ul>
+                <button class="loan-card-btn blue" onclick="scrollToContact()">
+                    <span>Get Personal Loan</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
         </div>
-    </nav>
+    </div>
+</section>
 
-    <!-- Home Section -->
-    <section id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1>
-                        Unlock Your Property's <span>True Value</span>
-                    </h1>
-                    <p>Get instant loans against your title deed with the fastest approval in the market. Funds in 72 hours guaranteed.</p>
-                    
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">72hrs</div>
-                            <div class="stat-label">Approval Time</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">80%</div>
-                            <div class="stat-label">Property Value</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">2,500+</div>
-                            <div class="stat-label">Happy Clients</div>
-                        </div>
+<!-- Features Section -->
+<section class="section section-bg-gradient">
+    <div class="container">
+        <div class="section-header scroll-reveal">
+            <h2 class="section-title">
+                Why choose <span class="text-gradient">Capital One</span>?
+            </h2>
+            <p class="section-subtitle">
+                We make borrowing simple, fast, and transparent. Here's why thousands trust us.
+            </p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-item scroll-reveal-scale">
+                <div class="feature-icon blue">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h4>Fast Approval</h4>
+                <p>Loan decisions in record time, funds within 72hrs</p>
+            </div>
+            
+            <div class="feature-item scroll-reveal-scale" style="transition-delay: 80ms;">
+                <div class="feature-icon cyan">
+                    <i class="fas fa-folder-open"></i>
+                </div>
+                <h4>Minimal Documents</h4>
+                <p>ID, proof of income & simple application</p>
+            </div>
+            
+            <div class="feature-item scroll-reveal-scale" style="transition-delay: 160ms;">
+                <div class="feature-icon indigo">
+                    <i class="fas fa-hand-paper"></i>
+                </div>
+                <h4>No Collateral*</h4>
+                <p>Unsecured personal loans available</p>
+                <small>*for personal loan option</small>
+            </div>
+            
+            <div class="feature-item scroll-reveal-scale" style="transition-delay: 240ms;">
+                <div class="feature-icon blue">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h4>Flexible Tenure</h4>
+                <p>Repayment plans that fit your cashflow</p>
+            </div>
+            
+            <div class="feature-item scroll-reveal-scale" style="transition-delay: 320ms;">
+                <div class="feature-icon cyan">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h4>Quick Disbursal</h4>
+                <p>Once approved, same-day transfer</p>
+            </div>
+            
+            <div class="feature-item scroll-reveal-scale" style="transition-delay: 400ms;">
+                <div class="feature-icon indigo">
+                    <i class="fas fa-chart-simple"></i>
+                </div>
+                <h4>Competitive Rates</h4>
+                <p>Low interest & transparent fees</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Banner -->
+<section class="stats-banner">
+    <div class="stats-grid">
+        <div class="stat-item scroll-reveal">
+            <div class="icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="value">10K+</div>
+            <div class="label">Happy Customers</div>
+        </div>
+        <div class="stat-item scroll-reveal" style="transition-delay: 100ms;">
+            <div class="icon">
+                <i class="fas fa-money-bill-wave"></i>
+            </div>
+            <div class="value">20M</div>
+            <div class="label">Max Loan Amount</div>
+        </div>
+        <div class="stat-item scroll-reveal" style="transition-delay: 200ms;">
+            <div class="icon">
+                <i class="fas fa-clock"></i>
+            </div>
+            <div class="value">72h</div>
+            <div class="label">Fast Approval</div>
+        </div>
+        <div class="stat-item scroll-reveal" style="transition-delay: 300ms;">
+            <div class="icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="value">5★</div>
+            <div class="label">Customer Rating</div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section contact-section" id="contact">
+    <div class="container">
+        <div class="contact-card">
+            <div class="contact-info scroll-reveal-left">
+                <h3>Talk to our loan experts</h3>
+                <p>Visit our office or reach out via phone – we guide you through every step from application to disbursement.</p>
+                
+                <div class="contact-item">
+                    <div class="icon">
+                        <i class="fas fa-phone-alt"></i>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Properties Section -->
-    <section id="properties" class="property-types">
-        <div class="container">
-            <div class="section-title">
-                <h2>Properties We Finance</h2>
-                <p>We provide loans against all types of real estate</p>
-            </div>
-            
-            <div class="property-grid">
-                <div class="property-card">
-                    <div class="property-icon">🏠</div>
-                    <div class="property-content">
-                        <h3>Residential Homes</h3>
-                        <p>Villas, bungalows, apartments, and townhouses. Up to 80% financing.</p>
-                        <a href="#contact" class="property-link">Inquire Now →</a>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <div class="property-icon">🏢</div>
-                    <div class="property-content">
-                        <h3>Commercial Property</h3>
-                        <p>Office buildings, retail spaces, warehouses, and industrial property.</p>
-                        <a href="#contact" class="property-link">Inquire Now →</a>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <div class="property-icon">🌆</div>
-                    <div class="property-content">
-                        <h3>Land & Plots</h3>
-                        <p>Vacant land, agricultural land, and development plots.</p>
-                        <a href="#contact" class="property-link">Inquire Now →</a>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <div class="property-icon">🏗️</div>
-                    <div class="property-content">
-                        <h3>Under Construction</h3>
-                        <p>Properties under development with proper approvals.</p>
-                        <a href="#contact" class="property-link">Inquire Now →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Loans Section -->
-    <section id="loans">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose Capital One?</h2>
-                <p>We make property financing simple, transparent, and incredibly fast</p>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🏗️</div>
-                    <h3>100% Construction Funding</h3>
-                    <p>Full funding from foundation to finish. No hidden margins or fees.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📄</div>
-                    <h3>Title Deed Loans</h3>
-                    <p>Instant cash against your title deed, up to 80% of property value.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>72hr Approval</h3>
-                    <p>From document submission to disbursement in 3 days – guaranteed.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📅</div>
-                    <h3>Flexible Tenure</h3>
-                    <p>6–72 months repayment, prepay without any penalty.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Competitive Rates</h3>
-                    <p>Industry-leading interest rates with no hidden charges.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Secure Process</h3>
-                    <p>Your property and data are protected with bank-level security.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section (Still part of Loans) -->
-    <section class="process">
-        <div class="container">
-            <div class="section-title">
-                <h2>From Application to Money</h2>
-                <p>Four simple steps to get your funds</p>
-            </div>
-            
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Apply Online</h3>
-                    <p>Fill our simple form in just 3 minutes</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Title Deed Check</h3>
-                    <p>We verify your property documents</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Instant Approval</h3>
-                    <p>Get approved within 24 hours</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Funds Disbursed</h3>
-                    <p>Money in your account in 72 hours</p>
-                </div>
-            </div>
-            
-            <p style="text-align: center; margin-top: 50px; font-size: 1.2rem; color: #00a86b; font-weight: 600;">We only need 24 hours to process your loan application</p>
-        </div>
-    </section>
-
-    <!-- Resources Section -->
-    <section id="resources" class="market-insights">
-        <div class="container">
-            <div class="section-title">
-                <h2 style="color: white;">Real Estate Market Insights</h2>
-                <p style="color: #b0c0d0;">Stay informed with the latest property trends</p>
-            </div>
-            
-            <div class="insights-grid">
-                <div class="insight-card">
-                    <h3>Property Values Up 12%</h3>
-                    <p>Real estate values in prime locations have increased by an average of 12% this year, making now the perfect time to leverage your equity.</p>
-                    <div class="insight-meta">Market Analysis 2026</div>
-                </div>
-                <div class="insight-card">
-                    <h3>New Development Zones</h3>
-                    <p>Government announces 5 new development zones with improved infrastructure, increasing property values in surrounding areas.</p>
-                    <div class="insight-meta">Development News</div>
-                </div>
-                <div class="insight-card">
-                    <h3>Title Deed Digitization</h3>
-                    <p>New digital title deed system reduces verification time by 70%, enabling faster loan processing.</p>
-                    <div class="insight-meta">Industry Update</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section (Still part of Resources) -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-title">
-                <h2>What Our Clients Say</h2>
-                <p>Real stories from property owners who got funded</p>
-            </div>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="quote-icon">"</div>
-                    <p>Applied on Monday, got the money on Wednesday. Built my house in Nakuru without any delays. The 72hr promise is real!</p>
-                    <div class="testimonial-author">James K.</div>
-                    <div class="testimonial-location">Nakuru</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="quote-icon">"</div>
-                    <p>Used my title deed to get a 2.4M loan for my business expansion. The whole process was smooth and transparent.</p>
-                    <div class="testimonial-author">Sarah M.</div>
-                    <div class="testimonial-location">Nairobi</div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="quote-icon">"</div>
-                    <p>Their online calculator helped me plan my finances perfectly. I recommend Capital One to all property owners.</p>
-                    <div class="testimonial-author">David O.</div>
-                    <div class="testimonial-location">Mombasa</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="cta-section">
-        <div class="container">
-            <h2>Ready to Unlock Your Property's Value?</h2>
-            <p>Get your loan approved in 72 hours. Visit us at Emperor Plaza or call now.</p>
-            <div class="cta-buttons">
-                <a href="tel:+243719217839" class="cta-btn">📞 Call +243 719 217 839</a>
-                <a href="https://wa.me/243719217839" target="_blank" class="cta-btn whatsapp">💬 WhatsApp Us</a>
-                <a href="#" class="cta-btn">📍 Emperor Plaza, Third Floor</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section footer-about">
-                    <h4>Capital One Real Estate Finance</h4>
-                    <p>We provide fast, transparent property loans using your title deed. Funds guaranteed in 72 hours with the best rates in the market.</p>
-                    <div style="display: flex; gap: 15px; margin-top: 20px;">
-                        <a href="https://wa.me/243719217839" target="_blank" style="color: white; font-size: 1.5rem;">💬</a>
-                        <a href="tel:+243719217839" style="color: white; font-size: 1.5rem;">📞</a>
+                    <div>
+                        <div class="label">Call / WhatsApp</div>
+                        <a href="tel:+254101797321" class="value">+254 101 797321</a>
                     </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#properties">Properties</a></li>
-                        <li><a href="#loans">Loans</a></li>
-                        <li><a href="#resources">Resources</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                <div class="contact-item">
+                    <div class="icon">
+                        <i class="fas fa-map-pin"></i>
+                    </div>
+                    <div>
+                        <div class="label">Head Office</div>
+                        <div class="value">Emperor Plaza, 4th Floor, Nairobi, Kenya</div>
+                    </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Loan Types</h4>
-                    <ul class="footer-links">
-                        <li><a href="#loans">Title Deed Loans</a></li>
-                        <li><a href="#loans">Construction Funding</a></li>
-                        <li><a href="#loans">Property Bridge Loans</a></li>
-                        <li><a href="#loans">Land Purchase Loans</a></li>
-                        <li><a href="#loans">Commercial Property</a></li>
-                    </ul>
+                <div class="contact-item">
+                    <div class="icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <div class="label">Email</div>
+                        <a href="mailto:loans@capitalonerealestate.co.ke" class="value">loans@capitalonerealestate.co.ke</a>
+                    </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Contact Us</h4>
-                    <ul class="footer-contact">
-                        <li>
-                            <span>📍</span>
-                            <span>Emperor Plaza, Third Floor<br>Nairobi, Kenya</span>
-                        </li>
-                        <li>
-                            <span>📞</span>
-                            <a href="tel:+243719217839">+243 719 217 839</a>
-                        </li>
-                        <li>
-                            <span>💬</span>
-                            <a href="https://wa.me/243719217839" target="_blank">WhatsApp: +243 719 217 839</a>
-                        </li>
-                        <li>
-                            <span>✉️</span>
-                            <a href="mailto:info@capitalone.co">info@capitalone.co</a>
-                        </li>
-                        <li>
-                            <span>⏰</span>
-                            <span>Mon-Fri: 8am-6pm<br>Sat: 9am-1pm</span>
-                        </li>
-                    </ul>
+                <div class="contact-hours">
+                    <i class="far fa-clock"></i>
+                    <span>Mon - Fri: 8:00 AM – 5:00 PM | Saturday: 9:00 AM – 1:00 PM</span>
                 </div>
             </div>
             
-            <div class="footer-bottom">
-                <p>© 2026 Capital One Real Estate Finance. All rights reserved.</p>
-                <p style="margin-top: 10px;">📍 Emperor Plaza, Third Floor | 📞 +243 719 217 839 | 💬 WhatsApp: +243 719 217 839</p>
+            <div class="contact-form scroll-reveal-right">
+                <h4>Request a callback</h4>
+                
+                <form id="loanForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full name" id="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone number" id="phoneNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="loanType" required>
+                            <option value="" disabled selected>Select loan type</option>
+                            <option value="Title Deed Loan">Title Deed Loan</option>
+                            <option value="Logbook Loan">Logbook Loan</option>
+                            <option value="Personal Loan">Personal Loan (No Collateral)</option>
+                            <option value="Business Loan">Business Loan</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Estimated loan amount (e.g., 2,000,000 KSh)" id="loanAmount">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Message / Questions (optional)" id="message"></textarea>
+                    </div>
+                    <button type="submit" class="form-btn" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Submit request</span>
+                    </button>
+                    <p class="form-note">We'll contact you within 24 hours. Your data is safe.</p>
+                </form>
+                
+                <!-- Success Message (hidden by default) -->
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <div class="icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h5>Thank you!</h5>
+                    <p>A loan specialist will contact you within 24 hours.</p>
+                </div>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <script>
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+<!-- Footer -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <img src="1000297987.jpg" alt="Capital One Real Estate">
+            <p>Trusted Title Deed & Logbook Loans in Kenya. Fast approval, competitive rates.</p>
+        </div>
+        
+        <div class="footer-links">
+            <h5>Quick Links</h5>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#contact">Apply Now</a></li>
+                <li><a href="tel:+254101797321">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-links">
+            <h5>Contact</h5>
+            <ul>
+                <li><a href="tel:+254101797321"><i class="fas fa-phone"></i> +254 101 797321</a></li>
+                <li><a href="#"><i class="fas fa-map-marker-alt"></i> Emperor Plaza, 4th Floor, Nairobi</a></li>
+                <li><a href="mailto:loans@capitalonerealestate.co.ke"><i class="fas fa-envelope"></i> loans@capitalonerealestate.co.ke</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 Capital One Real Estate – Trusted Title Deed & Logbook Loans. All rights reserved.</p>
+        <p class="small">
+            <i class="fas fa-shield-alt"></i>
+            Licensed by regulatory authorities | Terms apply | Approval subject to eligibility
+        </p>
+    </div>
+</footer>
+
+<script>
+    // Header scroll behavior - hide on scroll down, show on scroll up
+    const navbar = document.getElementById('navbar');
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function updateHeader() {
+        const currentScrollY = window.scrollY;
+        
+        // Add scrolled class for styling
+        if (currentScrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        
+        // Hide/show based on scroll direction
+        if (currentScrollY < 100) {
+            navbar.classList.remove('hidden');
+        } else if (currentScrollY > lastScrollY) {
+            navbar.classList.add('hidden');
+        } else {
+            navbar.classList.remove('hidden');
+        }
+        
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(updateHeader);
+            ticking = true;
+        }
+    }, { passive: true });
+
+    // Create particles
+    function createParticles() {
+        const container = document.getElementById('particles');
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            particle.style.animationDuration = (8 + Math.random() * 4) + 's';
+            particle.style.animationName = 'particleFloat';
+            container.appendChild(particle);
+        }
+    }
+    createParticles();
+
+    // Scroll reveal animation
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
         });
+    }, observerOptions);
 
-        // Optional: Add active state to navigation based on scroll position
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-links a');
+    document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Scroll to contact
+    function scrollToContact() {
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Form submission
+    document.getElementById('loanForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submitBtn');
+        const originalContent = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<div class="spinner"></div><span>Submitting...</span>';
+        
+        // Simulate submission
+        setTimeout(() => {
+            document.getElementById('loanForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
             
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 150;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
+            // Reset form after 5 seconds
+            setTimeout(() => {
+                document.getElementById('loanForm').reset();
+                document.getElementById('loanForm').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalContent;
+            }, 5000);
+        }, 1500);
+    });
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.style.color = '#00a86b';
-                } else {
-                    link.style.color = '#1e2d3a';
-                }
-            });
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
         });
-    </script>
+    });
+</script>
+
 </body>
 </html>
