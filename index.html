@@ -1,39 +1,1093 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Capital One Finserve | Asset Financing Kenya</title>
-    <!-- Google Fonts + Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capital One Finserve | Smart Asset Financing in Kenya</title>
+<meta name="description" content="Capital One Finserve provides asset financing and property-backed lending solutions in Kenya. Contact us to discuss your financing needs.">
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #1a2c3e;
-            scroll-behavior: smooth;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-        /* container */
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+<style>
+:root {
+  --navy: #071a35;
+  --navy2: #0c2c52;
+  --blue: #124e91;
+  --gold: #d4a84b;
+  --gold-light: #f3d58a;
+  --white: #ffffff;
+  --bg: #f6f8fc;
+  --text: #12233b;
+  --muted: #65748b;
+  --border: #e7ebf2;
+  --shadow: 0 20px 60px rgba(7,26,53,.08);
+}
 
-        /* buttons */
-        .btn-primary {
-            background: linear-gradient(135deg, #0f2b3d, #1b4f6e);
-            color: white;
-            border: none;
-            padding: 12px 32px;
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:'Inter',sans-serif;
+  background:var(--white);
+  color:var(--text);
+  line-height:1.7;
+}
+
+a { text-decoration:none; color:inherit; }
+
+.container {
+  width:min(1180px, calc(100% - 40px));
+  margin:auto;
+}
+
+h1,h2,h3,h4 {
+  font-family:'Manrope',sans-serif;
+  line-height:1.2;
+}
+
+.section { padding:100px 0; }
+
+.section-label {
+  color:var(--gold);
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin-bottom:14px;
+}
+
+.section-title {
+  font-size:clamp(30px,4vw,48px);
+  color:var(--navy);
+  letter-spacing:-1.4px;
+  margin-bottom:18px;
+}
+
+.section-sub {
+  color:var(--muted);
+  max-width:650px;
+  margin:0 auto 48px;
+}
+
+.center { text-align:center; }
+
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 25px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:700;
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.btn-gold {
+  background:var(--gold);
+  color:var(--navy);
+  box-shadow:0 8px 20px rgba(212,168,75,.18);
+}
+
+.btn-gold:hover {
+  background:var(--gold-light);
+  transform:translateY(-2px);
+}
+
+.btn-outline {
+  color:var(--navy);
+  border-color:#cbd5e1;
+  background:white;
+}
+
+.btn-outline:hover {
+  border-color:var(--gold);
+  color:var(--blue);
+}
+
+.btn-blue {
+  background:var(--blue);
+  color:white;
+}
+
+.btn-blue:hover { background:var(--navy); }
+
+/* Topbar */
+.topbar {
+  background:var(--navy);
+  color:#dbe5f3;
+  font-size:12px;
+  padding:9px 0;
+}
+
+.topbar .container {
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.topbar i { color:var(--gold); margin-right:6px; }
+
+/* Navbar */
+.navbar {
+  background:white;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.nav-inner {
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo {
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.logo-mark {
+  width:45px;
+  height:45px;
+  border-radius:10px;
+  background:var(--navy);
+  color:var(--gold);
+  display:grid;
+  place-items:center;
+  font-family:Georgia,serif;
+  font-size:25px;
+  font-weight:bold;
+  border:1px solid #cda34b;
+}
+
+.logo strong {
+  display:block;
+  font-family:'Manrope',sans-serif;
+  font-size:18px;
+  color:var(--navy);
+  line-height:1.3;
+}
+
+.logo span {
+  display:block;
+  color:var(--gold);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.nav-links {
+  display:flex;
+  align-items:center;
+  gap:28px;
+  list-style:none;
+}
+
+.nav-links a {
+  color:#35455c;
+  font-size:13px;
+  font-weight:600;
+}
+
+.nav-links a:hover { color:var(--blue); }
+
+.nav-cta { padding:11px 18px; }
+
+.menu-btn {
+  display:none;
+  background:none;
+  border:0;
+  font-size:24px;
+  color:var(--navy);
+  cursor:pointer;
+}
+
+/* Hero */
+.hero {
+  background:
+    radial-gradient(circle at 90% 10%,rgba(212,168,75,.13),transparent 35%),
+    linear-gradient(120deg,#06162d,#0b2b51);
+  color:white;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:after {
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  border:1px solid rgba(212,168,75,.15);
+  border-radius:50%;
+  right:-180px;
+  bottom:-200px;
+}
+
+.hero-grid {
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:70px;
+  align-items:center;
+  padding:85px 0 95px;
+}
+
+.hero .section-label { color:var(--gold-light); }
+
+.hero h1 {
+  font-size:clamp(35px,4.5vw,61px);
+  letter-spacing:-2px;
+  margin-bottom:25px;
+}
+
+.hero h1 span { color:var(--gold-light); }
+
+.hero p {
+  color:#c4d1e3;
+  font-size:16px;
+  max-width:540px;
+  margin-bottom:30px;
+}
+
+.hero-actions {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.hero .btn-outline {
+  background:transparent;
+  border-color:#66809e;
+  color:white;
+}
+
+.hero .btn-outline:hover {
+  background:white;
+  color:var(--navy);
+}
+
+.hero-trust {
+  display:flex;
+  gap:25px;
+  margin-top:35px;
+  flex-wrap:wrap;
+  color:#b7c8dd;
+  font-size:12px;
+}
+
+.hero-trust i { color:var(--gold); margin-right:6px; }
+
+/* Calculator */
+.calculator {
+  background:white;
+  color:var(--text);
+  border-radius:16px;
+  padding:32px;
+  box-shadow:0 25px 70px rgba(0,0,0,.25);
+  position:relative;
+  z-index:2;
+}
+
+.calc-head {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:26px;
+}
+
+.calc-head h3 { font-size:22px; color:var(--navy); }
+
+.calc-badge {
+  color:var(--gold);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.calc-label {
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:13px;
+  font-weight:600;
+  margin:20px 0 8px;
+}
+
+.calc-label strong { color:var(--blue); }
+
+input[type=range] {
+  width:100%;
+  accent-color:var(--gold);
+  cursor:pointer;
+}
+
+.calc-summary {
+  background:#f4f7fb;
+  border:1px solid #e6edf5;
+  border-radius:12px;
+  padding:20px;
+  margin:25px 0;
+  text-align:center;
+}
+
+.calc-summary small { color:var(--muted); }
+
+.monthly {
+  font-size:29px;
+  font-family:'Manrope',sans-serif;
+  font-weight:800;
+  color:var(--navy);
+  margin:5px 0;
+}
+
+.calc-summary p {
+  color:var(--muted);
+  font-size:12px;
+  margin:0;
+}
+
+.calc-summary strong { color:var(--blue); }
+
+.full { width:100%; }
+
+/* Trust strip */
+.trust-strip {
+  background:white;
+  border-bottom:1px solid var(--border);
+  padding:25px 0;
+}
+
+.trust-items {
+  display:flex;
+  justify-content:space-around;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.trust-item {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--navy);
+  font-size:13px;
+  font-weight:700;
+}
+
+.trust-item i {
+  color:var(--gold);
+  font-size:23px;
+}
+
+/* Cards */
+.cards {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.card {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:28px 23px;
+  transition:.25s;
+}
+
+.card:hover {
+  transform:translateY(-6px);
+  border-color:#e0c47b;
+  box-shadow:var(--shadow);
+}
+
+.card-icon {
+  width:52px;
+  height:52px;
+  border-radius:12px;
+  background:#fff8e8;
+  color:var(--gold);
+  display:grid;
+  place-items:center;
+  font-size:21px;
+  margin-bottom:23px;
+}
+
+.card h3 {
+  color:var(--navy);
+  font-size:18px;
+  margin-bottom:12px;
+}
+
+.card p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+}
+
+.card-link {
+  display:inline-flex;
+  gap:8px;
+  color:var(--blue);
+  font-size:12px;
+  font-weight:800;
+  margin-top:20px;
+}
+
+/* About */
+.about {
+  background:var(--bg);
+}
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.about-box {
+  background:var(--navy);
+  border-radius:16px;
+  padding:42px;
+  color:white;
+  position:relative;
+  overflow:hidden;
+}
+
+.about-box:before {
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border:1px solid rgba(212,168,75,.25);
+  border-radius:50%;
+  right:-80px;
+  top:-80px;
+}
+
+.about-box h3 {
+  font-size:30px;
+  margin:20px 0;
+}
+
+.about-box p { color:#b7c8dd; font-size:14px; }
+
+.about-list {
+  list-style:none;
+  margin-top:25px;
+}
+
+.about-list li {
+  margin:13px 0;
+  font-size:14px;
+}
+
+.about-list i {
+  color:var(--gold);
+  margin-right:10px;
+}
+
+.feature {
+  display:flex;
+  gap:15px;
+  margin:22px 0;
+}
+
+.feature i { color:var(--gold); font-size:20px; margin-top:3px; }
+
+.feature h4 { color:var(--navy); margin-bottom:5px; }
+
+.feature p { color:var(--muted); font-size:13px; }
+
+/* Process */
+.process {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:25px;
+}
+
+.process-item {
+  text-align:center;
+  position:relative;
+}
+
+.process-number {
+  width:48px;
+  height:48px;
+  margin:0 auto 20px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--navy);
+  color:var(--gold);
+  font-weight:800;
+  border:1px solid var(--gold);
+}
+
+.process h3 { font-size:17px; margin-bottom:10px; }
+
+.process p { color:var(--muted); font-size:13px; }
+
+/* CTA */
+.cta {
+  background:linear-gradient(120deg,var(--navy),var(--blue));
+  padding:65px 0;
+  color:white;
+}
+
+.cta-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+}
+
+.cta h2 { font-size:35px; margin-bottom:10px; }
+
+.cta p { color:#c6d5e7; font-size:14px; }
+
+/* Footer */
+footer {
+  background:#041225;
+  color:#91a7c2;
+  padding:65px 0 25px;
+}
+
+.footer-grid {
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:50px;
+}
+
+footer h3, footer h4 { color:white; margin-bottom:18px; }
+
+footer p, footer a {
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+footer a:hover { color:var(--gold); }
+
+.footer-bottom {
+  border-top:1px solid #203650;
+  padding-top:25px;
+  margin-top:45px;
+  text-align:center;
+  font-size:12px;
+}
+
+/* Floating WhatsApp */
+.floating-wa {
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#25d366;
+  color:white;
+  font-size:27px;
+  z-index:1001;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+.floating-wa:hover { transform:scale(1.08); }
+
+/* Responsive */
+@media(max-width:950px) {
+  .cards { grid-template-columns:repeat(2,1fr); }
+  .hero-grid,.about-grid { grid-template-columns:1fr; gap:40px; }
+  .hero-grid { padding:65px 0; }
+  .process { grid-template-columns:repeat(2,1fr); gap:35px; }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+  .cta-inner { flex-direction:column; align-items:flex-start; }
+}
+
+@media(max-width:700px) {
+  .topbar { display:none; }
+  .nav-inner { min-height:70px; }
+  .menu-btn { display:block; }
+  .nav-links {
+    display:none;
+    width:100%;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+    padding:20px 0;
+  }
+  .nav-links.open { display:flex; }
+  .nav-inner { flex-wrap:wrap; }
+  .nav-links .btn { width:100%; }
+  .section { padding:65px 0; }
+  .hero h1 { letter-spacing:-1px; }
+  .calculator { padding:24px; }
+  .cards,.footer-grid { grid-template-columns:1fr; }
+  .trust-items { justify-content:flex-start; }
+  .about-box { padding:28px; }
+  .process { grid-template-columns:1fr 1fr; }
+  .cta h2 { font-size:28px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Top contact bar -->
+<div class="topbar">
+  <div class="container">
+    <span><i class="fas fa-shield-halved"></i> Responsible financing solutions</span>
+    <span><i class="fas fa-phone"></i> +254 720 726854 &nbsp; | &nbsp; <i class="fas fa-envelope"></i> Contact Capital One</span>
+  </div>
+</div>
+
+<!-- Navigation -->
+<header class="navbar">
+  <div class="container nav-inner">
+
+    <a href="#" class="logo">
+      <div class="logo-mark">C1</div>
+      <div>
+        <strong>Capital One</strong>
+        <span>Finserve Ltd</span>
+      </div>
+    </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#">Home</a></li>
+      <li><a href="#loans">Our Solutions</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li>
+        <a class="btn btn-gold nav-cta" href="https://wa.me/254720726854?text=Hello%20Capital%20One%20Finserve%2C%20I%20would%20like%20to%20discuss%20financing." target="_blank">
+          Get Started <i class="fas fa-arrow-right"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <div class="section-label">Capital One Finserve Ltd</div>
+
+      <h1>Financial solutions designed around <span>your ambitions.</span></h1>
+
+      <p>
+        Unlock opportunities with property-backed lending,
+        logbook financing, and development funding.
+        Let's build a financing solution that works for you.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="https://wa.me/254720726854?text=Hello%20Capital%20One%20Finserve%2C%20I%20would%20like%20to%20apply%20for%20financing." target="_blank">
+          Apply for Financing <i class="fas fa-arrow-right"></i>
+        </a>
+
+        <a class="btn btn-outline" href="tel:+254720726854">
+          <i class="fas fa-phone"></i> Talk to Us
+        </a>
+      </div>
+
+      <div class="hero-trust">
+        <span><i class="fas fa-check-circle"></i> Transparent process</span>
+        <span><i class="fas fa-check-circle"></i> Dedicated support</span>
+      </div>
+    </div>
+
+    <!-- Calculator -->
+    <div class="calculator">
+      <div class="calc-head">
+        <h3>Loan Estimator</h3>
+        <span class="calc-badge">Estimate</span>
+      </div>
+
+      <p style="font-size:13px;color:#65748b;">
+        Explore an illustrative repayment estimate.
+        Actual terms depend on assessment and approval.
+      </p>
+
+      <div class="calc-label">
+        <span>Financing Amount</span>
+        <strong id="amountValue">KSh 100,000</strong>
+      </div>
+
+      <input type="range" id="loanAmount" min="10000" max="20000000" step="10000" value="100000">
+
+      <div class="calc-label">
+        <span>Repayment Period</span>
+        <strong id="monthsValue">12 Months</strong>
+      </div>
+
+      <input type="range" id="loanMonths" min="3" max="48" value="12">
+
+      <div class="calc-summary">
+        <small>Illustrative monthly payment</small>
+        <div class="monthly" id="monthlyPayment">KSh 8,833</div>
+        <p>Estimated total repayment: <strong id="totalPayback">KSh 106,000</strong></p>
+        <p style="margin-top:6px;">Term: <span id="termMonths">12</span> months</p>
+      </div>
+
+      <a class="btn btn-blue full" id="applyCalcBtn" href="#" target="_blank">
+        Discuss Your Financing <i class="fas fa-arrow-right"></i>
+      </a>
+
+      <p style="font-size:10px;color:#8996a8;text-align:center;margin-top:15px;">
+        This is an illustrative estimate, not a loan offer.
+        Fees, interest, eligibility and final repayment terms are subject to assessment.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Trust strip -->
+<div class="trust-strip">
+  <div class="container trust-items">
+    <div class="trust-item"><i class="fas fa-lock"></i> Confidential Enquiries</div>
+    <div class="trust-item"><i class="fas fa-file-signature"></i> Clear Documentation</div>
+    <div class="trust-item"><i class="fas fa-headset"></i> Personalised Support</div>
+    <div class="trust-item"><i class="fas fa-building-columns"></i> Kenya-Focused Solutions</div>
+  </div>
+</div>
+
+<!-- Services -->
+<section class="section" id="loans">
+  <div class="container">
+    <div class="center">
+      <div class="section-label">Our Financing Solutions</div>
+      <h2 class="section-title">Funding for what matters most.</h2>
+      <p class="section-sub">
+        Explore financing options designed for personal needs,
+        business growth, and property development.
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-house"></i></div>
+        <h3>Title Deed Financing</h3>
+        <p>
+          Property-backed financing for eligible individuals
+          and businesses, subject to property assessment,
+          documentation, and approval.
+        </p>
+        <a class="card-link" href="https://wa.me/254720726854?text=I%20would%20like%20to%20inquire%20about%20Title%20Deed%20Financing." target="_blank">
+          Enquire Now <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-car"></i></div>
+        <h3>Logbook Financing</h3>
+        <p>
+          Explore financing using an eligible vehicle as
+          security, while understanding the applicable
+          terms, costs, and repayment obligations.
+        </p>
+        <a class="card-link" href="https://wa.me/254720726854?text=I%20would%20like%20to%20inquire%20about%20Logbook%20Financing." target="_blank">
+          Enquire Now <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-building"></i></div>
+        <h3>Property Development</h3>
+        <p>
+          Discuss financing options for qualifying
+          construction and rental property development
+          projects with our team.
+        </p>
+        <a class="card-link" href="https://wa.me/254720726854?text=I%20would%20like%20to%20discuss%20Property%20Development%20Financing." target="_blank">
+          Enquire Now <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+        <h3>Property Investment</h3>
+        <p>
+          Learn about property investment opportunities,
+          participation structures, and potential returns,
+          subject to the specific investment arrangement.
+        </p>
+        <a class="card-link" href="https://wa.me/254720726854?text=I%20would%20like%20to%20learn%20about%20Property%20Investment%20Opportunities." target="_blank">
+          Enquire Now <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section about" id="about">
+  <div class="container about-grid">
+
+    <div>
+      <div class="section-label">Why Capital One</div>
+      <h2 class="section-title">A financing partner built around your goals.</h2>
+
+      <p style="color:#65748b;font-size:14px;">
+        At Capital One Finserve Ltd, we aim to make financing
+        easier to understand and navigate. Our approach
+        focuses on clear communication, suitable solutions,
+        and dedicated customer support.
+      </p>
+
+      <div class="feature">
+        <i class="fas fa-shield-halved"></i>
+        <div>
+          <h4>Clarity at Every Step</h4>
+          <p>Understand the application process, costs, and obligations before proceeding.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <i class="fas fa-handshake"></i>
+        <div>
+          <h4>Personalised Support</h4>
+          <p>Discuss your financing needs with a team that can guide you through the process.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <i class="fas fa-chart-line"></i>
+        <div>
+          <h4>Solutions for Growth</h4>
+          <p>Explore financing for assets, property, business, and development needs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-box">
+      <div class="section-label">Our Commitment</div>
+      <h3>Helping you move forward with confidence.</h3>
+      <p>
+        Every financing journey begins with a conversation.
+        Tell us what you need and let's explore the available
+        options together.
+      </p>
+
+      <ul class="about-list">
+        <li><i class="fas fa-check"></i> Transparent communication</li>
+        <li><i class="fas fa-check"></i> Customer-focused service</li>
+        <li><i class="fas fa-check"></i> Clear financing information</li>
+        <li><i class="fas fa-check"></i> Dedicated support</li>
+      </ul>
+
+      <a href="https://wa.me/254720726854?text=Hello%20Capital%20One%20Finserve%2C%20I%20would%20like%20to%20discuss%20my%20financing%20needs." target="_blank" class="btn btn-gold" style="margin-top:25px;">
+        Speak to Our Team <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="center">
+      <div class="section-label">Simple Process</div>
+      <h2 class="section-title">How it works</h2>
+      <p class="section-sub">
+        Start with a conversation and take the next step
+        towards understanding your financing options.
+      </p>
+    </div>
+
+    <div class="process">
+      <div class="process-item">
+        <div class="process-number">01</div>
+        <h3>Make an Enquiry</h3>
+        <p>Contact our team and tell us about your financing needs.</p>
+      </div>
+
+      <div class="process-item">
+        <div class="process-number">02</div>
+        <h3>Share Details</h3>
+        <p>Provide the relevant information and documents requested.</p>
+      </div>
+
+      <div class="process-item">
+        <div class="process-number">03</div>
+        <h3>Assessment</h3>
+        <p>Your application is reviewed against the applicable requirements.</p>
+      </div>
+
+      <div class="process-item">
+        <div class="process-number">04</div>
+        <h3>Understand Your Offer</h3>
+        <p>Review approved terms and obligations before accepting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="container cta-inner">
+    <div>
+      <h2>Ready to explore your options?</h2>
+      <p>Start a conversation with Capital One Finserve today.</p>
+    </div>
+
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="https://wa.me/254720726854?text=Hello%20Capital%20One%20Finserve%2C%20I%20would%20like%20to%20discuss%20financing." target="_blank" class="btn btn-gold">
+        <i class="fab fa-whatsapp"></i> WhatsApp Us
+      </a>
+      <a href="tel:+254720726854" class="btn btn-outline" style="background:transparent;color:white;border-color:#66809e;">
+        <i class="fas fa-phone"></i> Call Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container footer-grid">
+
+    <div>
+      <div class="logo" style="margin-bottom:20px;">
+        <div class="logo-mark">C1</div>
+        <div>
+          <strong style="color:white;">Capital One</strong>
+          <span>Finserve Ltd</span>
+        </div>
+      </div>
+
+      <p>
+        Financing solutions designed to support
+        your personal and business goals.
+      </p>
+
+      <p style="margin-top:18px;">
+        <i class="fab fa-whatsapp" style="color:#d4a84b;"></i>
+        +254 720 726854
+      </p>
+
+      <p>
+        <i class="fas fa-globe" style="color:#d4a84b;"></i>
+        capitalone.co.ke
+      </p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <p><a href="#loans">Our Solutions</a></p>
+      <p><a href="#about">About Us</a></p>
+      <p><a href="#process">How It Works</a></p>
+      <p><a href="https://wa.me/254720726854" target="_blank">Contact Us</a></p>
+    </div>
+
+    <div>
+      <h4>Important Information</h4>
+      <p><a href="#">Terms of Use</a></p>
+      <p><a href="#">Privacy Policy</a></p>
+      <p><a href="#">Complaints</a></p>
+      <p><a href="#">Responsible Financing</a></p>
+    </div>
+
+  </div>
+
+  <div class="container footer-bottom">
+    © 2026 Capital One Finserve Ltd. All rights reserved.
+    <br>
+    Financing is subject to eligibility, assessment, approval, and applicable terms.
+  </div>
+</footer>
+
+<!-- WhatsApp floating button -->
+<a class="floating-wa" href="https://wa.me/254720726854?text=Hello%20Capital%20One%20Finserve%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" aria-label="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+// Mobile navigation
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+
+menuBtn.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', open);
+  menuBtn.innerHTML = open
+    ? '<i class="fas fa-times"></i>'
+    : '<i class="fas fa-bars"></i>';
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+  });
+});
+
+// Loan calculator
+const amountSlider = document.getElementById('loanAmount');
+const monthsSlider = document.getElementById('loanMonths');
+const amountValue = document.getElementById('amountValue');
+const monthsValue = document.getElementById('monthsValue');
+const monthlyPayment = document.getElementById('monthlyPayment');
+const totalPayback = document.getElementById('totalPayback');
+const termMonths = document.getElementById('termMonths');
+const applyCalcBtn = document.getElementById('applyCalcBtn');
+
+function formatKES(value) {
+  return 'KSh ' + Math.round(value).toLocaleString('en-KE');
+}
+
+function updateLoan() {
+  const principal = Number(amountSlider.value);
+  const months = Number(monthsSlider.value);
+
+  // Illustrative simple-interest calculation.
+  // Replace with your approved pricing formula.
+  const annualRate = 0.36;
+  const total = principal * (1 + annualRate * months / 12);
+  const monthly = total / months;
+
+  amountValue.textContent = formatKES(principal);
+  monthsValue.textContent = months + ' Months';
+  monthlyPayment.textContent = formatKES(monthly);
+  totalPayback.textContent = formatKES(total);
+  termMonths.textContent = months;
+
+  const message =
+    'Hello Capital One Finserve, I would like to discuss financing of ' +
+    formatKES(principal) + ' over ' + months + ' months.';
+
+  applyCalcBtn.href =
+    'https://wa.me/254720726854?text=' + encodeURIComponent(message);
+}
+
+amountSlider.addEventListener('input', updateLoan);
+monthsSlider.addEventListener('input', updateLoan);
+updateLoan();
+</script>
+
+</body>
+</html>
             border-radius: 40px;
             font-weight: 600;
             font-size: 1rem;
